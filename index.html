@@ -25,6 +25,88 @@ body{
     position:relative;
 }
 
+/* АНИМИРОВАННЫЙ ФОН */
+
+.animated-bg{
+    position:fixed;
+    inset:0;
+    z-index:-5;
+
+    background:
+    radial-gradient(circle at top left, rgba(255,0,0,0.15), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(255,0,0,0.12), transparent 35%),
+    #050505;
+
+    overflow:hidden;
+}
+
+/* ЧАСТИЦЫ */
+
+.particles{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-4;
+    overflow:hidden;
+}
+
+.particles span{
+    position:absolute;
+    display:block;
+    width:3px;
+    height:120px;
+
+    background:linear-gradient(
+        transparent,
+        rgba(255,0,0,0.9),
+        transparent
+    );
+
+    border-radius:50px;
+
+    animation:animateParticles linear infinite;
+    opacity:0.5;
+}
+
+/* ПОЗИЦИИ */
+
+.particles span:nth-child(1){left:5%;animation-duration:7s;}
+.particles span:nth-child(2){left:15%;animation-duration:9s;}
+.particles span:nth-child(3){left:28%;animation-duration:6s;}
+.particles span:nth-child(4){left:40%;animation-duration:10s;}
+.particles span:nth-child(5){left:52%;animation-duration:7s;}
+.particles span:nth-child(6){left:64%;animation-duration:8s;}
+.particles span:nth-child(7){left:75%;animation-duration:11s;}
+.particles span:nth-child(8){left:84%;animation-duration:6s;}
+.particles span:nth-child(9){left:92%;animation-duration:9s;}
+.particles span:nth-child(10){left:97%;animation-duration:8s;}
+
+/* АНИМАЦИЯ */
+
+@keyframes animateParticles{
+
+    0%{
+        transform:translateY(-150px);
+        opacity:0;
+    }
+
+    15%{
+        opacity:0.6;
+    }
+
+    85%{
+        opacity:0.6;
+    }
+
+    100%{
+        transform:translateY(120vh);
+        opacity:0;
+    }
+
+}
+
 /* СВЕЧЕНИЕ */
 
 body::before,
@@ -297,7 +379,7 @@ nav a:hover::after{
     color:#bdbdbd;
 }
 
-/* CLAN INFO */
+/* INFO */
 
 .info-box{
     margin-top:60px;
@@ -389,6 +471,23 @@ footer p{
 </head>
 <body>
 
+<div class="animated-bg"></div>
+
+<div class="particles">
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+
 <header>
 
     <div class="logo">CLXN ONLY</div>
@@ -397,18 +496,17 @@ footer p{
         <a href="#about">О КЛАНЕ</a>
         <a href="#team">СОСТАВ</a>
         <a href="#info">ИНФО</a>
+        <a href="rules.html">ПРАВИЛА</a>
     </nav>
 
 </header>
-
-<!-- HERO -->
 
 <section class="hero">
 
     <h1>CLXN ONLY</h1>
 
     <p>
-        Доминирующий Rustex Remake клан с сильным PvP составом,
+        Доминирующий Rust клан с сильным PvP составом,
         организованными рейдами и жестким контролем территорий.
         Мы не играем ради количества — мы играем ради победы.
     </p>
@@ -419,11 +517,13 @@ footer p{
             DISCORD
         </a>
 
+        <a href="https://t.me/" target="_blank" class="btn">
+            TELEGRAM
+        </a>
+
     </div>
 
 </section>
-
-<!-- ABOUT -->
 
 <section class="section" id="about">
 
@@ -462,8 +562,6 @@ footer p{
 
 </section>
 
-<!-- TEAM -->
-
 <section class="section" id="team">
 
     <h2 class="title">СОСТАВ КЛАНА</h2>
@@ -485,17 +583,17 @@ footer p{
             <p>Hadjim</p>
         </div>
 
-         <div class="member">
+        <div class="member">
             <h2>MAIN PLAYER</h2>
             <p>Faki4</p>
         </div>
 
-         <div class="member">
+        <div class="member">
             <h2>MAIN PLAYER</h2>
             <p>444</p>
         </div>
 
-         <div class="member">
+        <div class="member">
             <h2>MAIN PLAYER</h2>
             <p>gadkay_swagaaaa</p>
         </div>
@@ -503,8 +601,6 @@ footer p{
     </div>
 
 </section>
-
-<!-- INFO -->
 
 <section class="section" id="info">
 
@@ -523,7 +619,16 @@ footer p{
             <a href="https://discord.gg/SJCQ7KeBxp"
             target="_blank"
             style="color:#ff3b3b;text-decoration:none;">
-            https://discord.gg/SJCQ7KeBxp
+            discord.gg/SJCQ7KeBxp
+            </a>
+
+            <br><br>
+
+            TELEGRAM:
+            <a href="https://t.me/"
+            target="_blank"
+            style="color:#ff3b3b;text-decoration:none;">
+            t.me/
             </a>
 
             <br><br>
