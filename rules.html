@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CLXN RULES</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050505;
+    font-family:'Orbitron',sans-serif;
+    color:white;
+    overflow-x:hidden;
+    position:relative;
+    padding:50px 8%;
+}
+
+/* АНИМИРОВАННЫЙ ФОН */
+
+.animated-bg{
+    position:fixed;
+    inset:0;
+    z-index:-5;
+
+    background:
+    radial-gradient(circle at top left, rgba(255,0,0,0.15), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(255,0,0,0.12), transparent 35%),
+    #050505;
+
+    overflow:hidden;
+}
+
+/* ЧАСТИЦЫ */
+
+.particles{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-4;
+    overflow:hidden;
+}
+
+.particles span{
+    position:absolute;
+    display:block;
+    width:3px;
+    height:120px;
+
+    background:linear-gradient(
+        transparent,
+        rgba(255,0,0,0.9),
+        transparent
+    );
+
+    border-radius:50px;
+
+    animation:animateParticles linear infinite;
+    opacity:0.5;
+}
+
+/* ПОЗИЦИИ */
+
+.particles span:nth-child(1){left:5%;animation-duration:7s;}
+.particles span:nth-child(2){left:15%;animation-duration:9s;}
+.particles span:nth-child(3){left:28%;animation-duration:6s;}
+.particles span:nth-child(4){left:40%;animation-duration:10s;}
+.particles span:nth-child(5){left:52%;animation-duration:7s;}
+.particles span:nth-child(6){left:64%;animation-duration:8s;}
+.particles span:nth-child(7){left:75%;animation-duration:11s;}
+.particles span:nth-child(8){left:84%;animation-duration:6s;}
+.particles span:nth-child(9){left:92%;animation-duration:9s;}
+.particles span:nth-child(10){left:97%;animation-duration:8s;}
+
+/* АНИМАЦИЯ */
+
+@keyframes animateParticles{
+
+    0%{
+        transform:translateY(-150px);
+        opacity:0;
+    }
+
+    15%{
+        opacity:0.6;
+    }
+
+    85%{
+        opacity:0.6;
+    }
+
+    100%{
+        transform:translateY(120vh);
+        opacity:0;
+    }
+
+}
+
+/* СВЕЧЕНИЕ */
+
+body::before,
+body::after{
+    content:'';
+    position:fixed;
+    width:300px;
+    height:100%;
+    top:0;
+    filter:blur(130px);
+    opacity:0.25;
+    z-index:-2;
+}
+
+body::before{
+    left:-150px;
+    background:#ff0000;
+}
+
+body::after{
+    right:-150px;
+    background:#ff0000;
+}
+
+/* TITLE */
+
+.title{
+    text-align:center;
+    font-size:70px;
+    color:#ff2a2a;
+    margin-bottom:60px;
+
+    text-shadow:
+    0 0 20px #ff0000,
+    0 0 50px #ff0000;
+}
+
+/* RULES */
+
+.rules{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.rule{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,0,0,0.15);
+    border-radius:22px;
+    padding:35px;
+    transition:0.35s;
+    backdrop-filter:blur(10px);
+}
+
+.rule:hover{
+    transform:translateY(-5px);
+    border-color:#ff0000;
+
+    box-shadow:
+    0 0 25px rgba(255,0,0,0.25);
+}
+
+.rule h2{
+    color:#ff3b3b;
+    margin-bottom:15px;
+    font-size:28px;
+}
+
+.rule p{
+    color:#d0d0d0;
+    line-height:1.9;
+    font-size:16px;
+}
+
+/* BUTTONS */
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin-top:70px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:18px 40px;
+    border:2px solid #ff0000;
+    border-radius:15px;
+    color:#ff3b3b;
+    text-decoration:none;
+    transition:0.35s;
+    background:rgba(255,0,0,0.05);
+    position:relative;
+    overflow:hidden;
+}
+
+.btn::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:100%;
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+    );
+
+    transition:0.6s;
+}
+
+.btn:hover::before{
+    left:120%;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+
+    background:#ff0000;
+    color:white;
+
+    box-shadow:
+    0 0 20px #ff0000,
+    0 0 40px #ff0000;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#050505;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#ff0000;
+    border-radius:20px;
+    box-shadow:0 0 10px #ff0000;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .title{
+        font-size:42px;
+    }
+
+    .rule{
+        padding:25px;
+    }
+
+    .rule h2{
+        font-size:22px;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="animated-bg"></div>
+
+<div class="particles">
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+
+<h1 class="title">CLXN RULES</h1>
+
+<div class="rules">
+
+    <div class="rule">
+        <h2>1.1 СОГЛАСИЕ С ПРАВИЛАМИ</h2>
+
+        <p>
+            Находясь в Discord сервере вы автоматически
+            соглашаетесь со всеми правилами проекта.
+        </p>
+    </div>
+
+    <div class="rule">
+        <h2>1.2 НЕЗНАНИЕ ПРАВИЛ</h2>
+
+        <p>
+            Незнание правил не освобождает вас от ответственности.
+        </p>
+    </div>
+
+    <div class="rule">
+        <h2>1.3 РЕШЕНИЕ АДМИНИСТРАЦИИ</h2>
+
+        <p>
+            Администрация Discord сервера имеет право
+            выдать наказание без объяснения причин.
+            Все наказания могут суммироваться.
+        </p>
+    </div>
+
+    <div class="rule">
+        <h2>2.1 ОСКОРБЛЕНИЯ И ПРОВОКАЦИИ</h2>
+
+        <p>
+            Запрещены оскорбления и провокации игроков.
+            Завуалированные оскорбления также считаются нарушением.
+            Гифки с оскорблениями тоже наказуемы.
+            <br><br>
+            НАКАЗАНИЕ: Мут 3 часа.
+        </p>
+    </div>
+
+    <div class="rule">
+        <h2>2.2 УПОМИНАНИЕ РОДНЫХ</h2>
+
+        <p>
+            Запрещено оскорбление или упоминание родных
+            в негативном контексте.
+            Гифки также считаются нарушением.
+            <br><br>
+            НАКАЗАНИЕ: Мут 1 день.
+        </p>
+    </div>
+
+    <div class="rule">
+        <h2>2.3 ОСКОРБЛЕНИЕ АДМИНИСТРАЦИИ</h2>
+
+        <p>
+            Запрещено оскорблять или провоцировать
+            администрацию Discord/сервера.
+            Завуалированные оскорбления также запрещены.
+            <br><br>
+            НАКАЗАНИЕ: Мут 12 часов.
+        </p>
+    </div>
+
+    <div class="rule">
+        <h2>2.4 НЕГАТИВ В СТОРОНУ ПРОЕКТА</h2>
+
+        <p>
+            Запрещено оскорбление проекта
+            и упоминание проекта в негативном контексте.
+            <br><br>
+            НАКАЗАНИЕ: Мут 1 день.
+        </p>
+    </div>
+
+    <div class="rule">
+        <h2>2.5 ФЛУД</h2>
+
+        <p>
+            Запрещён флуд сообщениями.
+            От 3 одинаковых или схожих сообщений за 3 минуты.
+            Флуд гифками, смайликами и эмодзи также запрещён.
+            <br><br>
+            НАКАЗАНИЕ: Мут 1 час.
+        </p>
+    </div>
+
+    <div class="rule">
+        <h2>2.6 ФЛУД СИМВОЛАМИ</h2>
+
+        <p>
+            Запрещён флуд символами.
+            Более 15 символов подряд.
+            Смех по типу "ахахах" более 20 символов тоже запрещён.
+            <br><br>
+            НАКАЗАНИЕ: Мут 1 час.
+        </p>
+    </div>
+
+    <div class="rule">
+        <h2>2.7 РЕКЛАМА</h2>
+
+        <p>
+            Запрещена реклама сторонних проектов,
+            сайтов, Telegram каналов, YouTube каналов,
+            Discord серверов и любых сторонних ресурсов.
+            <br><br>
+            НАКАЗАНИЕ: Бан навсегда.
+        </p>
+    </div>
+
+    <div class="rule">
+        <h2>2.8 ВЫДАЧА СЕБЯ ЗА АДМИНИСТРАЦИЮ</h2>
+
+        <p>
+            Запрещено выдавать себя
+            за администрацию или модерацию сервера.
+            <br><br>
+            НАКАЗАНИЕ: Мут 3 часа.
+        </p>
+    </div>
+
+    <div class="rule">
+        <h2>2.9 ОРГАНИЗАЦИЯ ФЛУДА</h2>
+
+        <p>
+            Запрещена организация флуда
+            и призыв к спаму.
+            <br><br>
+            НАКАЗАНИЕ: Мут 2 часа.
+        </p>
+    </div>
+
+    <div class="rule">
+        <h2>2.10 КАПС</h2>
+
+        <p>
+            Запрещён чрезмерный капс.
+            Более 10 символов подряд заглавными буквами.
+            <br><br>
+            НАКАЗАНИЕ: Мут 45 минут.
+        </p>
+    </div>
+
+    <div class="rule">
+        <h2>3.1 ГОЛОСОВЫЕ КАНАЛЫ</h2>
+
+        <p>
+            Запрещено включать громкие,
+            резкие звуки, кричать в микрофон
+            и использовать SoundPad.
+            <br><br>
+            НАКАЗАНИЕ: Мут 12 часов.
+        </p>
+    </div>
+
+    <div class="rule">
+        <h2>3.2 ОСКОРБЛЕНИЯ В ГОЛОСОВЫХ КАНАЛАХ</h2>
+
+        <p>
+            Запрещено оскорблять участников
+            сервера в голосовых каналах.
+            <br><br>
+            НАКАЗАНИЕ: Мут 3 часа.
+        </p>
+    </div>
+
+    <div class="rule">
+        <h2>3.3 СООБЩЕНИЯ НЕ ПО ТЕМЕ</h2>
+
+        <p>
+            Запрещены сообщения,
+            не относящиеся к тематике канала.
+            <br><br>
+            НАКАЗАНИЕ: Мут 3 часа.
+        </p>
+    </div>
+
+</div>
+
+<div class="buttons">
+
+    <a href="index.html" class="btn">
+        НАЗАД
+    </a>
+
+    <a href="https://discord.gg/SJCQ7KeBxp"
+    target="_blank"
+    class="btn">
+        DISCORD
+    </a>
+
+</div>
+
+</body>
+</html>
